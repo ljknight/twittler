@@ -1,0 +1,44 @@
+body {
+  background-color: lightblue;
+  background-image: url('bg1.jpg');
+  background-size: contain;
+  font-family: Helvetica, sans-serif;
+}
+
+header {
+}
+
+h1 {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+
+.tweets {
+  background-color: rgba(256, 256, 256, .8);
+  margin: 0 auto;
+  padding: 40px 60px 40px;
+  width: 550px;
+}
+
+.user, .date {
+  display: inline;
+}
+
+.user {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.tweet {
+  border-bottom: 1px solid #666;
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
