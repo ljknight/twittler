@@ -13,6 +13,13 @@ streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
 
+var allUserURLS = {
+  shawndrost: "http://www.twitter.com/shawdrost",
+  sharksforcheap: "http://www.twitter.com/sharksforcheap",
+  mracus: "http://www.twitter.com/mracus",
+  douglascalhoun: "http://www.twitter.com/douglascalhoun"
+}
+
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
   var username = newTweet.user;

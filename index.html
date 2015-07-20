@@ -12,7 +12,6 @@
     <header>
       <h1>Twittler</h1>
     </header>
-    <section class="newTweets"></section>
     <section class="tweets"></section>
     <script>
 
@@ -20,7 +19,6 @@
         var $body = $('body');
         //$body.html('');
         var $tweets = $('.tweets');
-        var $newTweets = $('.newTweets');
         
 
          //adds 10 random tweets
@@ -50,7 +48,15 @@
           // shows relative time 
           var tweetDate = moment().startOf('hour').fromNow();
           
-          $tweetUser.text('@' + tweet.user);
+          // add user URL
+          var userURL = allUserURLS[tweet.user];
+          var userProfileLink = $('<a />', {
+            href: userURL,
+            target: "blank",
+            text: '@' + tweet.user
+          });
+          $tweetUser.html(userProfileLink);          
+
           $tweetDate.text(tweetDate);
           $tweet.text(tweet.message);
           $tweetUser.appendTo($tweets);
