@@ -4,75 +4,17 @@
     <title>Twittler</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
-    <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    
   </head>
   <body>
     <header>
       <h1>Twittler</h1>
     </header>
-    <button>Reload</button>
+    <button>Load <span></span> tweets</button>
     <section class="tweets"></section>
-    <script>
-
-      $(document).ready(function(){
-        var $body = $('body');
-        //$body.html('');
-        var $tweets = $('.tweets');
-        var $button = $('button');
-        
-        var showNewTweets = function() {
-          var index = streams.home.length - 1;
-          while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>', {
-            'class' : 'tweet'
-          }); 
-          var $tweetUser = $('<div></div>', {
-            'class' : 'user'
-          });
-          var $tweetDate = $('<div></div>', {
-            'class' : 'date'
-          });
-          
-          // date formatting
-          /*var tweetDay = tweet.created_at.getDate();
-          var monthNames = ["January", "February", "March", 
-          "April", "May", "June", "July", "August", "September", 
-          "October", "November", "December"];
-          var tweetMonthNumber = tweet.created_at.getMonth();
-          var tweetMonth = monthNames[tweetMonthNumber];
-          var tweetYear = tweet.created_at.getFullYear();
-          var tweetDate = tweetMonth + " " + tweetDay + ", " + tweetYear;*/
-
-          // shows relative time 
-          var tweetDate = moment().startOf('hour').fromNow();
-          
-          // add user URL
-          var userURL = allUserURLS[tweet.user];
-          var userProfileLink = $('<a />', {
-            href: userURL,
-            target: "blank",
-            text: '@' + tweet.user
-          });
-          $tweetUser.html(userProfileLink);          
-
-          $tweetDate.text(tweetDate);
-          $tweet.text(tweet.message);
-          $tweetUser.appendTo($tweets);
-          $tweetDate.appendTo($tweets);
-          $tweet.appendTo($tweets);
-          
-          index -= 1;
-         
-        }
-      };
-        
-      $button.click(showNewTweets);
-       
-    });
-
-    </script>
+    <script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
