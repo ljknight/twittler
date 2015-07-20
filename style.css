@@ -1,8 +1,15 @@
 body {
-  background-color: lightblue;
-  background-image: url('bg1.jpg');
-  background-size: contain;
+/*  background-color: lightgreen;
+  background-image: url('bg1.jpg'); */
   font-family: Helvetica, sans-serif;
+  background-color: lightgreen;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('bg1.jpg');
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('bg1.jpg');
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('bg1.jpg');
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('bg1.jpg');
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(0, 0, 0, 0.25))), url('bg1.jpg');
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('bg1.jpg'));
+  background-size: cover;
 }
 
 header {
@@ -10,13 +17,16 @@ header {
 
 h1 {
   color: white;
-  font-size: 50px;
+  font-family: 'Abril Fatface', sans-serif;
+  font-size: 80px;
+  font-style: italic;
+  font-weight: normal;
   text-align: center;
-}
+  }
 
 .tweets {
   background-color: rgba(256, 256, 256, .8);
-  margin: 0 auto;
+  margin: 0 auto 100px auto;
   padding: 40px 60px 40px;
   width: 550px;
 }
