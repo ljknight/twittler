@@ -1,67 +1,50 @@
 $(document).ready(function(){
   var $body = $('body');
   var $tweetStream = $('.tweets');
-  var $button = $('button');
+  var $showNext = $('.show-next');
+  var $showAll = $('.show-all');
   
-  var index = streams.home.length - 1;
-    while(index >= 0){
-    var tweet = streams.home[index];
-
+  var grabTweet = function() {
+    var tweet = streams.home.pop();
     var $tweetContainer = $('<div></div>', {
         'class' : 'tweetContainer'
       });
 
-      // shows relative time 
-      var tweetDate = moment().startOf('hour').fromNow();
+    // shows relative time 
+    var tweetDate = moment().startOf('hour').fromNow();
       
-      // add user URL
-      var userURL = allUserURLS[tweet.user];
-      var userProfileLink = $('<a />', {
-        href: userURL,
-        target: "blank",
-        text: '@' + tweet.user
-      });
+    // add user URL
+    var userURL = allUserURLS[tweet.user];
+    var userProfileLink = $('<a />', {
+      href: userURL,
+      target: "blank",
+      text: '@' + tweet.user
+    });
 
-      $tweetContainer.html('<a class="user">'+'@' + tweet.user +'</a>' + '<div class="date">'+tweetDate+'</div>' + '<div class="tweet">'+tweet.message+'</div>');
+    $tweetContainer.html('<a class="user">'+'@' + tweet.user +'</a>' + '<div class="date">'+tweetDate+'</div>' + '<div class="tweet-message">'+tweet.message+'</div>');
 
-      $tweetContainer.prependTo($tweetStream);
+    $tweetContainer.prependTo($tweetStream);
+  }
+
+  // loads 11 tweets on refresh
+  var index = streams.home.length - 1;
+    while(index >= 0){
+    
+    grabTweet();
       
     index--;
   };
 
-  var showNewTweets = function() {
-    
-      
-      // loads one tweet at a times
-      var tweet = streams.home.pop();
-      
-      var $tweetContainer = $('<div></div>', {
-        'class' : 'tweetContainer'
-      });
+  // loads one tweet at a time
+  $showNext.click(function() {
+    grabTweet();
+  });
 
-      // shows relative time 
-      var tweetDate = moment().startOf('hour').fromNow();
-      
-      // add user URL
-      var userURL = allUserURLS[tweet.user];
-      var userProfileLink = $('<a />', {
-        href: userURL,
-        target: "blank",
-        text: '@' + tweet.user
-      });
+  // loads all tweets
+  $showAll.click(function() {
+    while(streams.home.length >=0)
 
-      $tweetContainer.html('<a class="user">'+'@' + tweet.user +'</a>' + '<div class="date">'+tweetDate+'</div>' + '<div class="tweet">'+tweet.message+'</div>');
-
-      $tweetContainer.prependTo($tweetStream); 
-
-    }
-
-    var tweetCount = $('.tweetContainer').length;
-    console.log(tweetCount, streams.home.length) 
-  
-  $button.click(function() {
-    //$('span').text(streams.home.length-tweetCount);
-    showNewTweets();
+    grabTweet();    
   });
    
 });
