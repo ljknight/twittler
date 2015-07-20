@@ -13,12 +13,12 @@ streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
 
-var allUserURLS = {
-  shawndrost: "http://www.twitter.com/shawdrost",
-  sharksforcheap: "http://www.twitter.com/sharksforcheap",
-  mracus: "http://www.twitter.com/mracus",
-  douglascalhoun: "http://www.twitter.com/douglascalhoun"
-}
+var avatars = {
+  shawndrost: "https://d30y9cdsu7xlg0.cloudfront.net/png/17356-200.png",
+  sharksforcheap: "https://d30y9cdsu7xlg0.cloudfront.net/png/17358-200.png",
+  mracus: "https://d30y9cdsu7xlg0.cloudfront.net/png/17355-200.png",
+  douglascalhoun: "https://d30y9cdsu7xlg0.cloudfront.net/png/17364-200.png"
+};
 
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
