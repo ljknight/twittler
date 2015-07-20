@@ -12,6 +12,7 @@
     <header>
       <h1>Twittler</h1>
     </header>
+    <button>Reload</button>
     <section class="tweets"></section>
     <script>
 
@@ -19,11 +20,11 @@
         var $body = $('body');
         //$body.html('');
         var $tweets = $('.tweets');
+        var $button = $('button');
         
-
-         //adds 10 random tweets
-        var index = streams.home.length - 1;
-        while(index >= 0){
+        var showNewTweets = function() {
+          var index = streams.home.length - 1;
+          while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>', {
             'class' : 'tweet'
@@ -64,8 +65,13 @@
           $tweet.appendTo($tweets);
           
           index -= 1;
+         
         }
-      });
+      };
+        
+      $button.click(showNewTweets);
+       
+    });
 
     </script>
   </body>
