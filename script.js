@@ -43,13 +43,15 @@ $(document).ready(function(){
   };
 
   // loads one tweet at a time
-  $showNext.click(function() {
+  $showNext.click(function(e) {
+    e.preventDefault();
     grabTweet();
   });
 
   // loads all tweets
-  $showAll.click(function() {
+  $showAll.click(function(e) {
     while(streams.home.length > 0) {
+      e.preventDefault();
       grabTweet();
     }
   });
@@ -59,8 +61,10 @@ $(document).ready(function(){
     location.reload();
   });
 
-  $('a').click(function() {
-    userClass = $(this).closest('.tweet-container').attr('class').split(' ')[1];
+  // works on closest a 
+  $('body').on('click', 'a', function(e) {
+    e.preventDefault();
+    userClass = $(this).closest('.tweet-container').attr('class').split(' ')[1]; 
     $showingUserText.prependTo($tweetStream).text('Showing tweets by @' + userClass);
     $('.tweet-container:not(.'+userClass+')').fadeOut(500, function() { 
       $(this).remove(); 
