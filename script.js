@@ -21,7 +21,7 @@ $(document).ready(function(){
       var date = new Date();
       var tweetDate = date.toISOString();
 
-      $tweetContainer.html('<a class="user-link"><img class="avatar" src="'+avatars[tweet.user]+'"</>'+ '<div class="user">'+'@' + tweet.user +'</div></a>' + '<div class="date" title="'+tweetDate+'"></div>' + '<div class="tweet-message">'+tweet.message+'</div>');
+      $tweetContainer.html('<a class="user-link"><img class="avatar" src="'+avatars[tweet.user]+'" title="Show all tweets by @'+tweet.user+'"</>'+ '<div class="user">'+'@' + tweet.user +'</div></a>' + '<div class="date" title="'+tweetDate+'"></div>' + '<div class="tweet-message">'+tweet.message+'</div>');
 
       // gives tweet-container a class of its username
       $tweetContainer.addClass(tweet.user);
