@@ -17,7 +17,8 @@ var avatars = {
   shawndrost: "https://d30y9cdsu7xlg0.cloudfront.net/png/17356-200.png",
   sharksforcheap: "https://d30y9cdsu7xlg0.cloudfront.net/png/17358-200.png",
   mracus: "https://d30y9cdsu7xlg0.cloudfront.net/png/17355-200.png",
-  douglascalhoun: "https://d30y9cdsu7xlg0.cloudfront.net/png/17364-200.png"
+  douglascalhoun: "https://d30y9cdsu7xlg0.cloudfront.net/png/17364-200.png",
+  anonymous: "https://d30y9cdsu7xlg0.cloudfront.net/png/22717-200.png"
 };
 
 // utility function for adding tweets to our data structures
