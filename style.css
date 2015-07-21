@@ -25,6 +25,10 @@ h1 {
   text-align: center;
   }
 
+h1:hover, button:hover, .user-link:hover{
+  cursor: pointer;
+}
+
 .buttons {
   display: block;
   list-style: none;
@@ -63,9 +67,14 @@ button:hover {
   overflow: hidden;
 }
 
+.tweet-container:last-child {
+  margin-bottom: 30px;
+}
+
 .avatar {
   float: left;
-  margin: 10px 10px 10px;
+  margin: auto;
+  padding: 10px;
   width: 75px;
 }
 
