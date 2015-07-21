@@ -7,23 +7,32 @@
   </head>
   <body>
     <header>
-      <h1>Twittler</h1>
+      <h1 class='refresh'>Twittler</h1>
     </header>
-    <ul class="buttons">
+    <ul class="buttons-ul">
       <li>
-        <button class="show-next">Load next tweet</button>
+        <button class="compose-tweet hover">Compose tweet</button>
+      </li>
+      <li>
+        <button class="show-next hover">Load next tweet</button>
       </li>
       <li> 
-        <button class="show-all">Load all tweets</button>
+        <button class="show-all hover">Load all tweets</button>
       </li>
       <li> 
-        <button class="refresh">Refresh feed</button>
+        <button class="refresh hover">Refresh feed</button>
       </li>
     </ul>
-    <section class="tweet-stream"></section>
+    <div class="form">
+      <input type="text" class="compose-form"></input>
+      <input type="submit" class="submit-tweet hover" value="Send tweet"></input>
+    </div>
+    <section class="tweet-stream">
+      <div class="showing-user-text"></div>
+    </section>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.1/jquery.timeago.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

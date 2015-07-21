@@ -1,12 +1,17 @@
 var $body = $('body');
-  var $tweetStream = $('.tweet-stream');
-  var $showNext = $('.show-next');
-  var $showAll = $('.show-all');
-  var $refresh = $('.refresh');
-  var $showingUserText = $('.showing-user-text');
-  var $tweetContainer;
-  var formatTweet;
-  var userClass;
+var $tweetStream = $('.tweet-stream');
+var $composeForm = $('.compose-form');
+var $submitTweet = $('.submit-tweet');
+$composeForm.hide();
+$submitTweet.hide();
+var $composeTweet = $('.compose-tweet');
+var $showNext = $('.show-next');
+var $showAll = $('.show-all');
+var $refresh = $('.refresh');
+var $showingUserText = $('.showing-user-text');
+var $tweetContainer;
+var formatTweet;
+var userClass;
 
 $(document).ready(function(){
   // grabs next tweet and formats
@@ -42,16 +47,28 @@ $(document).ready(function(){
     grabTweet();
   };
 
+  // compose button effects
+  $composeTweet.click(function() {
+    $composeForm.fadeIn(500);
+    $submitTweet.fadeIn(500);
+    $composeTweet.removeClass('hover');
+  });
+
+  // submit button effects
+  $submitTweet.click(function(){
+    $composeForm.fadeOut(500);
+    $submitTweet.fadeOut(500);
+    $composeTweet.addClass('hover');
+  })
+
   // loads one tweet at a time
-  $showNext.click(function(e) {
-    e.preventDefault();
+  $showNext.click(function() {
     grabTweet();
   });
 
   // loads all tweets
-  $showAll.click(function(e) {
+  $showAll.click(function() {
     while(streams.home.length > 0) {
-      e.preventDefault();
       grabTweet();
     }
   });
@@ -62,8 +79,7 @@ $(document).ready(function(){
   });
 
   // works on closest a 
-  $('body').on('click', 'a', function(e) {
-    e.preventDefault();
+  $('body').on('click', 'a', function() {
     userClass = $(this).closest('.tweet-container').attr('class').split(' ')[1]; 
     $showingUserText.prependTo($tweetStream).text('Showing tweets by @' + userClass);
     $('.tweet-container:not(.'+userClass+')').fadeOut(500, function() { 

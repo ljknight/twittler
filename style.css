@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
 /*  background-color: lightgreen;
   background-image: url('bg1.jpg'); */
@@ -25,50 +29,80 @@ h1 {
   text-align: center;
   }
 
-h1:hover, button:hover, .user-link:hover{
+h1:hover, .submit-tweet:hover, button:hover, .user-link:hover{
   cursor: pointer;
 }
 
-.buttons {
-  display: block;
-  list-style: none;
-  padding: 0;
-  text-align: center;
+input, .buttons-ul {
+  margin-bottom: 40px;
 }
 
-.buttons li {
+.form, .buttons-ul, .tweet-stream {
+  margin-left: auto;
+  margin-right: auto;
+  width: 650px;
+}
+
+.compose-form {
   display: inline-block;
-  margin: 0 5px 50px;
+  width: 480px;
 }
 
-button {
+.compose-form, .submit-tweet, button {
   background-color: white;
   border-radius: 5px;
   border-width: 0;
   font-size: 18px;
   padding: 10px;
+}
+
+.compose-form, .buttons-ul li {
+  margin-right: 12px;
+}
+
+.submit-tweet {
+  display: inline-block;
+}
+
+.submit-tweet, button {
   width: 150px;
 }
 
-button:hover {
+.buttons-ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.buttons-ul li {
+  display: inline-block;
+}
+
+.buttons-ul li:last-child, .submit-tweet {
+  margin-right: 0
+}
+
+.hover:hover {
   background-color: salmon;
 }
 
 .tweet-stream {
   background-color: rgba(256, 256, 256, .8);
-  margin: 0 auto 100px auto;
-  padding: 40px 60px 40px;
-  width: 550px;
+  margin-top: 0;
+  margin-bottom: 100px;
+  padding: 40px 40px 50px;
+}
+
+.showing-user-text {
+  margin-top: 25px;
+  margin-bottom: 35px;
+  text-align: center;
 }
 
 .tweet-container {
   border-bottom: 1px solid #666;
   clear: both;
   overflow: hidden;
-}
-
-.tweet-container:last-child {
-  margin-bottom: 30px;
 }
 
 .avatar {
@@ -90,7 +124,7 @@ button:hover {
 
 }
 
-.date {
+.date, .showing-user-text {
   font-size: 12px;
 }
 
