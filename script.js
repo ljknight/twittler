@@ -76,11 +76,23 @@ $(document).ready(function(){
 
   // submit button effects & functionality for anonymous tweets
   $submitTweet.click(function(){
+    formatAnonymousTweet();
+    $("div.date").timeago();
     $composeForm.fadeOut(500);
     $submitTweet.fadeOut(500);
     $composeTweet.addClass('hover');
-    formatAnonymousTweet();
-    $("div.date").timeago();
+    $composeForm.val('');
+  })
+
+  $composeForm.keypress(function(e){
+    if (e.which === 13) {
+      formatAnonymousTweet();
+      $("div.date").timeago();
+      $composeForm.fadeOut(500);
+      $submitTweet.fadeOut(500);
+      $composeTweet.addClass('hover');
+      $composeForm.val('');
+    }
   })
 
   // loads one tweet at a time
