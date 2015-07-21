@@ -1,12 +1,16 @@
-$(document).ready(function(){
-  var $body = $('body');
+var $body = $('body');
   var $twittler = $('h1');
   var $tweetStream = $('.tweet-stream');
   var $showNext = $('.show-next');
   var $showAll = $('.show-all');
   var $refresh = $('.refresh');
+  var $showingUser = $('.showing-user');
   var formatTweet;
   var $userLink;
+  var userSorted = false;
+
+$(document).ready(function(){
+  
   
   // grabs next tweet and formats
   var grabTweet = function() {
@@ -26,9 +30,9 @@ $(document).ready(function(){
       // gives tweet-container a class of its username
       $tweetContainer.addClass(tweet.user);
 
-      $tweetContainer.html('<a class="user-link"><img class="avatar" src="'+avatarURL+'"</>'+ '<div class="user">'+'@' + tweet.user +'</div></a>' + '<div class="date">'+tweetDate+'</div>' + '<div class="tweet-message">'+tweet.message+'</div>');
+      $tweetContainer.html('<a class="user-link '+tweet.user+'"><img class="avatar" src="'+avatarURL+'"</>'+ '<div class="user">'+'@' + tweet.user +'</div></a>' + '<div class="date">'+tweetDate+'</div>' + '<div class="tweet-message">'+tweet.message+'</div>');
 
-      $tweetContainer.prependTo($tweetStream);
+      $tweetContainer.fadeIn().prependTo($tweetStream);
   
     }
 
@@ -51,7 +55,7 @@ $(document).ready(function(){
 
   // loads one tweet at a time
   $showNext.click(function() {
-    grabTweet();
+      grabTweet();
   });
 
   // loads all tweets
@@ -63,19 +67,22 @@ $(document).ready(function(){
 
   // refreshes feed
   $refresh.click(function() {
-    $tweetStream.html('');
-    refresh();
+    location.reload();
   });
 
-  // hard refresh for logo click
+  // refresh on logo click
   $twittler.click(function() {
     location.reload();
   });
 
-  // $userLink.click(function() {
-  //   var clickUser = $(this).closest('.tweet-container').;
-  //   console.log(clickUser);
-  //   $('.tweet-container').not('.' + clickUser).fadeOut();
-    
-  // });
+  $('.tweet-container').click(function() {
+    var userClass = $(this).closest('.tweet-container').attr('class').split(' ')[1];
+    console.log(userClass);
+    //$('div').find(userClass).show();
+    // var clickUser = $(this).closest('.tweet-container').;
+    // console.log(clickUser);
+    $showingUser.prependTo($tweetStream).text('Showing tweets by @' + userClass);
+    $('.tweet-container:not(.'+userClass+')').fadeOut();
+    userSorted = true;
+  });
 });
