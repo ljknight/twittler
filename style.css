@@ -29,6 +29,7 @@ h1 {
   text-align: center;
   }
 
+/* Change cursor to make clickable elements more obvious */
 h1:hover, .submit-tweet:hover, button:hover, .user-link:hover{
   cursor: pointer;
 }
@@ -45,7 +46,7 @@ h1:hover, .submit-tweet:hover, button:hover, .user-link:hover{
   text-align: center;
 }
 
-.buttons-ul li {
+.buttons-ul li, .compose-form, .submit-tweet, .user, .date {
   display: inline-block;
 }
 
@@ -72,8 +73,11 @@ button {
 .compose-form, .submit-tweet {
   background-color: white;
   border-width: 0;
-  font-size: 18px;
   padding: 10px;
+}
+
+.compose-form, .submit-tweet, .tweet-message {
+  font-size: 18px;
 }
 
 .hover:hover {
@@ -81,12 +85,7 @@ button {
 }
 
 .compose-form {
-  display: inline-block;
   width: 480px;
-}
-
-.submit-tweet {
-  display: inline-block;
 }
 
 .submit-tweet {
@@ -95,15 +94,17 @@ button {
 
 .tweet-stream {
   background-color: rgba(256, 256, 256, .8);
-  margin-top: 0;
   margin-bottom: 100px;
   padding: 40px 40px 50px;
 }
 
 .showing-user-text {
-  margin-top: 25px;
   margin-bottom: 35px;
   text-align: center;
+}
+
+.showing-user-text, .user, .date {
+  margin-top: 25px;
 }
 
 .tweet-container {
@@ -119,16 +120,10 @@ button {
   width: 75px;
 }
 
-.user, .date {
-  display: inline-block;
-  margin-top: 25px;
-}
-
 .user {
   font-size: 14px;
   font-weight: bold;
   margin-right: 10px;
-
 }
 
 .date, .showing-user-text {
@@ -136,7 +131,5 @@ button {
 }
 
 .tweet-message {
-  font-size: 18px;
   margin-bottom: 30px;
 }
-
