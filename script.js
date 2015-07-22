@@ -4,6 +4,7 @@ var $composeForm = $('.compose-form');
 var $submitTweet = $('.submit-tweet');
 $composeForm.hide();
 $submitTweet.hide();
+$countdown = $('.countdown');
 var $composeTweet = $('.compose-tweet');
 var tweetContent;
 var $showNext = $('.show-next');
@@ -67,11 +68,21 @@ $(document).ready(function(){
   };
 
   // compose button effects
-  $composeTweet.click(function() {
+  var showCompose = function() {
     $composeForm.fadeIn(500);
     $submitTweet.fadeIn(500);
     $composeTweet.removeClass('hover');
-  });
+    $(this).one('click', hideCompose);
+  }
+
+  var hideCompose = function() {
+    $composeForm.fadeOut(500);
+    $submitTweet.fadeOut(500);
+    $composeTweet.addClass('hover');
+    $(this).one('click', showCompose);
+  }
+
+  $composeTweet.one('click', showCompose);
 
 
   // submit button effects & functionality for anonymous tweets

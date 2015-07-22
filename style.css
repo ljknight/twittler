@@ -33,39 +33,10 @@ h1:hover, .submit-tweet:hover, button:hover, .user-link:hover{
   cursor: pointer;
 }
 
-input, .buttons-ul {
-  margin-bottom: 40px;
-}
-
-.form, .buttons-ul, .tweet-stream {
+.buttons-ul, .form, .tweet-stream {
   margin-left: auto;
   margin-right: auto;
   width: 650px;
-}
-
-.compose-form {
-  display: inline-block;
-  width: 480px;
-}
-
-.compose-form, .submit-tweet, button {
-  background-color: white;
-  border-radius: 5px;
-  border-width: 0;
-  font-size: 18px;
-  padding: 10px;
-}
-
-.compose-form, .buttons-ul li {
-  margin-right: 12px;
-}
-
-.submit-tweet {
-  display: inline-block;
-}
-
-.submit-tweet, button {
-  width: 150px;
 }
 
 .buttons-ul {
@@ -82,8 +53,44 @@ input, .buttons-ul {
   margin-right: 0
 }
 
+.buttons-ul, input {
+  margin-bottom: 40px;
+}
+
+.buttons-ul li, .compose-form {
+  margin-right: 12px;
+}
+
+button {
+  background: none;
+  border-width: 0;
+  color: white;
+  font-size: 14px;
+  width: 115px;
+}
+
+.compose-form, .submit-tweet {
+  background-color: white;
+  border-width: 0;
+  font-size: 18px;
+  padding: 10px;
+}
+
 .hover:hover {
   background-color: salmon;
+}
+
+.compose-form {
+  display: inline-block;
+  width: 480px;
+}
+
+.submit-tweet {
+  display: inline-block;
+}
+
+.submit-tweet {
+  width: 150px;
 }
 
 .tweet-stream {
@@ -107,7 +114,7 @@ input, .buttons-ul {
 
 .avatar {
   float: left;
-  margin: auto;
+  margin-top: 9px;
   padding: 10px;
   width: 75px;
 }
